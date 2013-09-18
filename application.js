@@ -19,10 +19,15 @@ $(document).ready(function() {
 			  var ulString = "<ul>";
 			  for(var i = 0; i < selected.tags.length; i++)
 			  {
-			  	ulString += "<li>#" + selected.tags[i] + "</li>";
+			  	ulString += "<li>" + selected.tags[i] + "</li>";
 			  }
 			  ulString += "</ul>"
 			  $("#photos").append("<br /><br />" + ulString);
+			  $("#photos").find("li").on("click", function() {
+			  	console.log($(this).text());
+			  	$("#playTag").val($(this).text());
+			  	$("#f1").submit();
+			  });
 			}
 		});
 	}
