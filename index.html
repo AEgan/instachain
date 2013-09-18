@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="jquery-2.0.2.js"></script>
+    <script type="text/javascript" src="application.js"></script>
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <p>InstaGetit</p>
+    <form id="f1">
+      <input id="playTag" type="text" name="tag">
+      <input id="playButton" type="submit" value="Start">
+    </form>
+    <script type="text/javascript">
+      var url = "https://api.instagram.com/v1/tags/search?q=hockey&client_id=12798879df08427ca9115a9a331c2140"
+    </script>
+    <div id="photos"></div>
+  </body>
+</html>
