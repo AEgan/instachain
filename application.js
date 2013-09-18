@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$("#f1").submit(function(event) {
+	function instagood() {
 		$.ajax({
 			type: "GET",
 			dataType: "jsonp",
@@ -19,6 +19,9 @@ $(document).ready(function() {
 			  $("#photos").append("<br /><br />" + ulString);
 			}
 		});
+	}
+	$("#f1").submit(function(event) {
+		instagood();
 		event.preventDefault();
 	});
 });
