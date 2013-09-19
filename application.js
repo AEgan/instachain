@@ -25,3 +25,7 @@ $(document).ready(function() {
 		event.preventDefault();
 	});
 });
+
+/*
+preventDefault() above prevents reload of the page when clicking submit
+*/
