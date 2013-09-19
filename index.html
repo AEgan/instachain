@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- stylesheets and javascript files -->
     <script type="text/javascript" src="jquery-2.0.2.js"></script>
     <script type="text/javascript" src="application.js"></script>
     <link rel="stylesheet" type="text/css" href="bootstrap.css">
@@ -10,7 +11,9 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
+            <!-- Instagram search instruction and fields -->
             <h1>InstaChain</h1>
+            <p>InstaChain lets you search instagram for a tag and will return a random image that was recently uploaded with that tag. It will also display all of the tags that were included with the picture displayed, allowing you to click on them and search again for another image.</p>
             <p id="intro">Enter a term to get started</p>
             <form id="f1">
               <input id="playTag" type="text" name="tag">
@@ -20,9 +23,11 @@
         </div>
         <div class="row">
           <div class="col-lg-8">
+            <!-- Location where the photos will be placed -->
             <div id="photos"></div>
           </div>
           <div class="col-lg-4">
+            <!-- Location where the tags will be placed, to the right of the photos -->
             <div id="tags"></div>
           </div>
         </div>

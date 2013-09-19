@@ -24,6 +24,8 @@ $(document).ready(function() {
 			  $("#intro").html("Showing a random result for " +$("#playTag").val());
 			  ulString += "</ul>"
 			  $("#tags").html("<p>Tags for this image include:</p><br /><br />" + ulString);
+
+			  // make tags buttons that will search for an image by calling this function over again
 			  $("#tags").find("li").on("click", function() {
 			  	console.log($(this).text());
 			  	$("#playTag").val($(this).text());
@@ -33,7 +35,9 @@ $(document).ready(function() {
 		});
 	}
 	$("#f1").submit(function(event) {
+		// call the function to get the instagram photo
 		instagood();
+		// prevent the submit button from reloading the page and not displaying what we made the call for
 		event.preventDefault();
 	});
 
@@ -48,17 +52,20 @@ Below: part where I request from same origin
 		$("#responseArea").hide();
 		$.getJSON("colleges.json", function(responseObject, didItWork) {
 			console.log(didItWork);
+			// get colleges from the same origin
 			var displayText = "This is a list of " + responseObject.colleges.length + " colleges in Pennsylvania: <table class=\"table\"><thead><tr><th>Name<\/th><th>City<\/th><\/tr><\/thead>";
 			for(var i = 0; i < responseObject.colleges.length; i++) {
 				var currentCollege = responseObject.colleges[i];
 				displayText+= "<tr><td>" + currentCollege.name + "<\/td><td>" + currentCollege.city + "<\/td><\/tr>";
 			}
+			// buttons that change the way the table is displayed
 			displayText += "<\/table><br\/><input class=\"btn btn-primary\" type=\"button\" value=\"Add stripes\" id=\"stripes\">  \
       <input class=\"btn btn-primary\" type=\"button\" value=\"Add border\" id=\"border\">  \
       <input class=\"btn btn-primary\" type=\"button\" value=\"Add Hover\" id=\"hover\">"
 
       $("#responseArea").html(displayText);
 
+      // click listeners to add bootstrap classes to the table
 			$("#stripes").on("click", function() {
 				$(".table").addClass("table-striped")
 			});
