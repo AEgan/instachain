@@ -1,0 +1,6 @@
+{"colleges": [
+	{ "name":"Carnegie Mellon Univeristy" , "city":"Pittsburgh", "state":"Pennsylvania" },
+	{ "name":"University of Pittsburgh" , "city":"Pittsburgh", "state":"Pennsylvania" },
+	{ "name":"University of Pennsylvania" , "city":"Philadelphia", "state":"Pennsylvania" },
+	{ "name":"Drexel University", "city":"Philadelphia", "state":"Pennsylvania" }
+	]}

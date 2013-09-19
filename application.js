@@ -36,8 +36,47 @@ $(document).ready(function() {
 		instagood();
 		event.preventDefault();
 	});
+
+/* preventDefault() above prevents reload of the page when clicking submit */
+
+/*********************************************
+********************************************
+Below: part where I request from same origin
+*********************************************/	
+
+	$("#collegeButton").on('click', function(){
+		$("#responseArea").hide();
+		$.getJSON("colleges.json", function(responseObject, didItWork) {
+			console.log(didItWork);
+			var displayText = "This is a list of " + responseObject.colleges.length + " colleges in Pennsylvania: <table class=\"table\"><thead><tr><th>Name<\/th><th>City<\/th><\/tr><\/thead>";
+			for(var i = 0; i < responseObject.colleges.length; i++) {
+				var currentCollege = responseObject.colleges[i];
+				displayText+= "<tr><td>" + currentCollege.name + "<\/td><td>" + currentCollege.city + "<\/td><\/tr>";
+			}
+			displayText += "<\/table><br\/><input class=\"btn btn-primary\" type=\"button\" value=\"Add stripes\" id=\"stripes\">  \
+      <input class=\"btn btn-primary\" type=\"button\" value=\"Add border\" id=\"border\">  \
+      <input class=\"btn btn-primary\" type=\"button\" value=\"Add Hover\" id=\"hover\">"
+
+      $("#responseArea").html(displayText);
+
+			$("#stripes").on("click", function() {
+				$(".table").addClass("table-striped")
+			});
+			$("#border").on("click", function() {
+				$(".table").addClass("table-bordered");
+			});
+			$("#hover").on("click", function() {
+				$(".table").addClass("table-hover");
+			});
+
+		$("#responseArea").show();
+		});
+	});
 });
 
-/*
-preventDefault() above prevents reload of the page when clicking submit
-*/
+  /*
+    For displayText just above, "\" were placed so I could separate the long string into 3 lines
+  */
+
+
+
