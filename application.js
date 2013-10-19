@@ -19,7 +19,7 @@ $(document).ready(function() {
 			  var ulString = "<ul>";
 			  for(var i = 0; i < selected.tags.length; i++)
 			  {
-			  	ulString += "<li class='btn btn-primary'>" + selected.tags[i] + "</li>";
+			  	ulString += "<li>" + selected.tags[i] + "</li>";
 			  }
 			  $("#intro").html("Showing a random result for " +$("#playTag").val());
 			  ulString += "</ul>"
