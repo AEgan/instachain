@@ -3,6 +3,7 @@
   <head>
     <!-- stylesheets and javascript files -->
     <script type="text/javascript" src="jquery-2.0.2.js"></script>
+    <script type="text/javascript" src="bootstrap.js"></script>
     <script type="text/javascript" src="application.js"></script>
     <link rel="stylesheet" type="text/css" href="bootstrap.css">
     <link rel="stylesheet" type="text/css" href="overrides.css">
@@ -23,6 +24,12 @@
           <input id="playTag" type="text" name="tag">
           <input id="playButton" type="submit" value="Search" class="searchButton">
         </form>
+      </div>
+      <div class="row">
+        <div id="errorMsg">
+          <b>Error</b>
+          <p>There was an error with your search term. Please only use letters and numbers. No other symbols can be used in Instagram tags. Please search for a tag without a leading #</p>
+        </div>
       </div>
       <div class="row">
         <div class="col-xs-12 col-md-8 col-sm-6 col-lg-8">

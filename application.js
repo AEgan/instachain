@@ -1,34 +1,42 @@
 $(document).ready(function() {
+	$("#errorMsg").hide();
 	function instagood() {
-		// ajax call
-		$.ajax({
-			type: "GET",
-			dataType: "jsonp",
-			cache: false,
-			url: "https://api.instagram.com/v1/tags/"+$("#playTag").val().replace(" ", "") +"/media/recent?client_id=12798879df08427ca9115a9a331c2140",
-			success: function(response) {
-			  //the selected image
-			  var selected = response.data[Math.floor(Math.random() * response.data.length)];
-			  //adding the photo
-			  $("#photos").html("<img src='"+selected.images.standard_resolution.url+"'><br />");
+		var term = $("#playTag").val();
+		if(term.match(/^[0-9a-zA-Z]+$/)) {
+			$("#errorMsg").hide();
+			// ajax call
+			$.ajax({
+				type: "GET",
+				dataType: "jsonp",
+				cache: false,
+				url: "https://api.instagram.com/v1/tags/"+ term +"/media/recent?client_id=12798879df08427ca9115a9a331c2140",
+				success: function(response) {
+				  //the selected image
+				  var selected = response.data[Math.floor(Math.random() * response.data.length)];
+				  //adding the photo
+				  $("#photos").html("<img src='"+selected.images.standard_resolution.url+"'><br />");
 
-			  //looping through and adding a UL of tags for the chosen picture
-			  var ulString = "<ul>";
-			  for(var i = 0; i < selected.tags.length; i++)
-			  {
-			  	ulString += "<li class='tagButton'>" + selected.tags[i] + "</li>";
-			  }
-			  $("#intro").html("Showing a random result for " +$("#playTag").val());
-			  ulString += "</ul>"
-			  $("#tags").html("<p>Tags for this image include:</p><br /><br />" + ulString);
+				  //looping through and adding a UL of tags for the chosen picture
+				  var ulString = "<ul>";
+				  for(var i = 0; i < selected.tags.length; i++)
+				  {
+				  	ulString += "<li class='tagButton'>" + selected.tags[i] + "</li>";
+				  }
+				  $("#intro").html("Showing a random result for " +term);
+				  ulString += "</ul>"
+				  $("#tags").html("<p>Tags for this image include:</p><br /><br />" + ulString);
 
-			  // make tags buttons that will search for an image by calling this function over again
-			  $("#tags").find("li").on("click", function() {
-			  	$("#playTag").val($(this).text());
-			  	$("#f1").submit();
-			  });
-			}
-		});
+				  // make tags buttons that will search for an image by calling this function over again
+				  $("#tags").find("li").on("click", function() {
+				  	$("#playTag").val($(this).text());
+				  	$("#f1").submit();
+				  });
+				}
+			});
+		}
+		else {
+			$("#errorMsg").show();
+		}
 	}
 	$("#f1").submit(function(event) {
 		// call the function to get the instagram photo

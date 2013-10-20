@@ -97,3 +97,11 @@ body {
 	padding-right: 15px;
 	width: 33.33333333333333%;*/
 }
+
+#errorMsg {
+	width: 100%;
+	background-color: #F2DEDE;
+	color: #B94A48;
+	padding: 10px 25px;
+	margin-bottom: 10px;
+}
