@@ -4,26 +4,37 @@
     <!-- stylesheets and javascript files -->
     <script type="text/javascript" src="jquery-2.0.2.js"></script>
     <script type="text/javascript" src="application.js"></script>
-    <!-- <link rel="stylesheet" type="text/css" href="bootstrap.css"> -->
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="overrides.css">
   </head>
   <body>
-      <div class="custNav">
-        <ul>
-          <li>InstaChain</li>
-        </ul>
+    <div id="custNav">
+      <ul>
+        <li>InstaChain</li>
+        <li><a href="https://github.com/AEgan/instachain">on github!</a></li>
+      </ul>
+    </div>
+    <div id="wrapper">
+      <div id="instructions">
+        <!-- Instagram search instruction and fields -->
+        <p>Chain together search terms to find <em>...interesting</em> photos on Instagram!</p>
+        <b>Enter a term</b>
+        <form id="f1">
+          <input id="playTag" type="text" name="tag">
+          <input id="playButton" type="submit" value="Search" class="searchButton">
+        </form>
       </div>
-      <!-- Instagram search instruction and fields -->
-      <p>InstaChain lets you search instagram for a tag and will return a random image that was recently uploaded with that tag. It will also display all of the tags that were included with the picture displayed, allowing you to click on them and search again for another image.</p>
-      <p id="intro">Enter a term to get started</p>
-      <form id="f1">
-        <input id="playTag" type="text" name="tag">
-        <input id="playButton" type="submit" value="Start">
-      </form>
-      <!-- Location where the photos will be placed -->
-      <div id="photos"></div>
-      <!-- Location where the tags will be placed, to the right of the photos -->
-      <div id="tags"></div>
-
+      <div class="row">
+        <div class="col-xs-12 col-md-8 col-sm-6 col-lg-8">
+        <!-- Location where the photos will be placed -->
+          <div id="photos"></div>
+        </div>
+        <div class="col-xs-12 col-md-4 col-sm-6 col-lg-4">
+          <!-- Location where the tags will be placed, to the right of the photos -->
+           <div id="tags"></div>
+        </div>
+     </div>
+    </div>
   </body>
 </html>
 
