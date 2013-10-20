@@ -1,7 +1,9 @@
 $(document).ready(function() {
 	$("#errorMsg").hide();
 	function instagood() {
+		// dealing with the issue of improper input
 		var term = $("#playTag").val();
+		
 		if(term.match(/^[0-9a-zA-Z]+$/)) {
 			$("#errorMsg").hide();
 			// ajax call
